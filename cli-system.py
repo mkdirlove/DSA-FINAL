@@ -5,10 +5,14 @@
 #######################################################################################
                 
 #######################################################################################
+#######################################################################################
 
 # LIBRARIES
 import sqlite3, os
 from time import sleep
+
+#######################################################################################
+#######################################################################################
 
 # COLOR LIST
 class bcolors:
@@ -21,6 +25,7 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+#######################################################################################
 #######################################################################################
 
 # BANNER
@@ -37,6 +42,7 @@ banner = """
   .▀   .▀  ▀ ▀█▄▀▪ ▀▀▀• ▀▀▀ ·▀▀▀  ▀▀▀ 
 """
 
+#######################################################################################
 #######################################################################################
 
 # GROUP MEMBERS
@@ -66,8 +72,9 @@ def group_members():
     input(" Press any key to continue...")
     
 #######################################################################################
+#######################################################################################
 
-# CREATE TABLE
+# CREATE DATABASE TABLE
 def create_table():
         conn = sqlite3.connect('Item.db')
         cur = conn.cursor()
@@ -97,6 +104,7 @@ def create_table():
         conn.close()
 
 #######################################################################################
+#######################################################################################
 
 # MAIN MENU
 def menu():
@@ -123,6 +131,7 @@ def menu():
     print(bcolors.CYAN + " [0]. CLOSE PROGRAM\n")
 
 #######################################################################################
+#######################################################################################
 
 # INSERT QUERY
 
@@ -136,6 +145,9 @@ def insert_name():
     conn.commit()
     conn.close()
     print(' Item Information Add Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    add_item()
 
 def insert_fish():
     ID = int(input(" Enter ID: "))
@@ -147,6 +159,9 @@ def insert_fish():
     conn.commit()
     conn.close()
     print(' Item Information Add Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    add_item()
 
 def insert_number():
     ID = int(input(" Enter ID: "))
@@ -158,6 +173,9 @@ def insert_number():
     conn.commit()
     conn.close()
     print(' Item Information Add Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    add_item()
 
 def insert_country():
     ID = int(input(" Enter ID: "))
@@ -169,6 +187,9 @@ def insert_country():
     conn.commit()
     conn.close()
     print(' Item Information Add Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    add_item()
 
 def insert_postal():
     ID = int(input(" Enter ID: "))
@@ -180,7 +201,11 @@ def insert_postal():
     conn.commit()
     conn.close()
     print(' Item Information Add Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    add_item()
 
+#######################################################################################
 #######################################################################################
 
 # DELETE QUERY
@@ -193,6 +218,9 @@ def delete_name():
     conn.commit()
     conn.close()
     print(' Item Deletion Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    delete_item()
 
 def delete_fish():
     ID = int(input(" Enter ID: "))
@@ -203,6 +231,9 @@ def delete_fish():
     conn.commit()
     conn.close()
     print(' Item Deletion Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    delete_item()
 
 def delete_number():
     ID = int(input(" Enter ID: "))
@@ -213,6 +244,9 @@ def delete_number():
     conn.commit()
     conn.close()
     print(' Item Deletion Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    delete_item()
 
 def delete_country():
     ID = int(input(" Enter ID: "))
@@ -223,6 +257,9 @@ def delete_country():
     conn.commit()
     conn.close()
     print(' Item Deletion Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    delete_item()
 
 def delete_postal():
     ID = int(input(" Enter ID: "))
@@ -233,7 +270,11 @@ def delete_postal():
     conn.commit()
     conn.close()
     print(' Item Deletion Complete')
+    input(" Press any key to continue...")
+    os.system("clear")
+    delete_item()
 
+#######################################################################################
 #######################################################################################
 
 # UPDATE QUERY
@@ -250,6 +291,7 @@ def update_name():
         print(" Record Updated successfully ")
         cursor.close()
         input(" Press any key to continue...")
+        os.system("clear")
         update_item()
 
     except sqlite3.Error as error:
@@ -272,6 +314,7 @@ def update_fish():
         print(" Record Updated successfully ")
         cursor.close()
         input(" Press any key to continue...")
+        os.system("clear")
         update_item()
 
     except sqlite3.Error as error:
@@ -294,6 +337,7 @@ def update_number():
         print(" Record Updated successfully ")
         cursor.close()
         input(" Press any key to continue...")
+        os.system("clear")
         update_item()
 
     except sqlite3.Error as error:
@@ -316,6 +360,7 @@ def update_country():
         print(" Record Updated successfully ")
         cursor.close()
         input(" Press any key to continue...")
+        os.system("clear")
         update_item()        
 
     except sqlite3.Error as error:
@@ -338,6 +383,7 @@ def update_postal():
         print(" Record Updated successfully ")
         cursor.close()
         input(" Press any key to continue...")
+        os.system("clear")
         update_item()
         
     except sqlite3.Error as error:
@@ -347,6 +393,7 @@ def update_postal():
             sqliteConnection.close()
             print(" The SQLite connection is closed")
 
+#######################################################################################
 #######################################################################################
 
 # ADD ITEM
@@ -389,6 +436,7 @@ def add_item():
         print(" Invalid input, try again...")
 
 #######################################################################################
+#######################################################################################
 
 # DELETE ITEM
 def delete_item():
@@ -429,6 +477,7 @@ def delete_item():
     else:
         print(" Invalid input, try again...")
 
+#######################################################################################
 #######################################################################################
 
 # UPDATE ITEM
@@ -471,6 +520,7 @@ def update_item():
         print(" Invalid input, try again...")
 
 #######################################################################################
+#######################################################################################
 
 # SEARCH ITEM
 def search_item():
@@ -506,6 +556,7 @@ def search_item():
         records = cursor.fetchall()
         print(" Search Result: " + str(records))
         input(" Press any key to continue...")
+        os.system("clear")
         search_item()
         
     elif cat == '2':
@@ -518,6 +569,7 @@ def search_item():
         records = cursor.fetchall()
         print(" Search Result: " + str(records))
         input(" Press any key to continue...")
+        os.system("clear")
         search_item()
         
     elif cat == '3':
@@ -530,6 +582,7 @@ def search_item():
         records = cursor.fetchall()
         print(" Search Result: " + str(records))
         input(" Press any key to continue...")
+        os.system("clear")
         search_item()
         
     elif cat == '4':
@@ -542,6 +595,7 @@ def search_item():
         records = cursor.fetchall()
         print(" Search Result: " + str(records))
         input(" Press any key to continue...")
+        os.system("clear")
         search_item()
         
     elif cat == '5':
@@ -554,6 +608,7 @@ def search_item():
         records = cursor.fetchall()
         print(" Search Result: " + str(records))
         input(" Press any key to continue...")
+        os.system("clear")
         search_item()
             
     elif cat == '0':
@@ -562,9 +617,11 @@ def search_item():
         print(" Invalid input, try again...")
 
 #######################################################################################
+#######################################################################################
 
 # VIEW ITEM
 def view_item():
+    print(bcolors.CYAN + banner + bcolors.ENDC)
     sleep(.1)
     print(bcolors.HEADER + " ───────────────────────────────────────" + bcolors.ENDC)
     sleep(.1)
@@ -602,6 +659,7 @@ def view_item():
                 print(" Name: ", row[1]) 
                 print("\n")
             input(" Press any key to continue...")
+            os.system("clear")
             cursor.close()
             view_item()
 
@@ -627,7 +685,8 @@ def view_item():
                 print(" Id: ", row[0])
                 print(" Name: ", row[1]) 
                 print("\n")
-                input(" Press any key to continue...")
+            input(" Press any key to continue...")
+            os.system("clear")
             cursor.close()
             view_item()
 
@@ -654,6 +713,7 @@ def view_item():
                 print(" Name: ", row[1]) 
                 print("\n")
             input(" Press any key to continue...")
+            os.system("clear")
             cursor.close()
             view_item()
 
@@ -680,6 +740,7 @@ def view_item():
                 print(" Name: ", row[1]) 
                 print("\n")
             input(" Press any key to continue...")
+            os.system("clear")
             cursor.close()
             view_item()
 
@@ -706,6 +767,7 @@ def view_item():
                 print(" Name: ", row[1]) 
                 print("\n")
             input(" Press any key to continue...")
+            os.system("clear")
             cursor.close()
             view_item()
 
@@ -721,6 +783,7 @@ def view_item():
     else:
         print(" Invalid input, try again...")
 
+#######################################################################################
 #######################################################################################
 
 # MAIN FUNCTION
@@ -745,6 +808,15 @@ def main():
         else:
             os.system("clear")
             quit()
+            os.system("clear")
 
+#######################################################################################
+#######################################################################################
+
+# EXECUTE MAIN FUNCTION
 if __name__=='__main__':
     main()
+
+#######################################################################################
+#              GROUP MEMBERS : JAYSON, ARSENIUS, MAYNARD, JASPER, NICO                #
+#######################################################################################
